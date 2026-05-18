@@ -1,0 +1,157 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+# Date created = 16:36:22  March 30, 2026
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Mandelbrot_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY Mandelbrot
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:36:22  MARCH 30, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+#============================================================
+# CLOCK
+#============================================================
+set_location_assignment PIN_Y2 -to i_Clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_Clk
+
+#============================================================
+# VGA SYNC SIGNALS
+#============================================================
+set_location_assignment PIN_G13 -to o_VGA_HSync
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_HSync
+
+set_location_assignment PIN_C13 -to o_VGA_VSync
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_VSync
+
+#============================================================
+# VGA RED (Mapped to DAC MSBs 7, 6, 5)
+#============================================================
+set_location_assignment PIN_H10 -to o_VGA_Red_7
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_7
+set_location_assignment PIN_H8 -to o_VGA_Red_6
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_6
+set_location_assignment PIN_J12 -to o_VGA_Red_5
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_5
+set_location_assignment PIN_G10 -to o_VGA_Red_4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_4
+set_location_assignment PIN_F12 -to o_VGA_Red_3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_3
+set_location_assignment PIN_D10 -to o_VGA_Red_2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_2
+set_location_assignment PIN_E11 -to o_VGA_Red_1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_1
+set_location_assignment PIN_E12 -to o_VGA_Red_0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Red_0
+
+#============================================================
+# VGA GREEN (Mapped to DAC MSBs 7, 6, 5)
+#============================================================
+set_location_assignment PIN_C9 -to o_VGA_Grn_7
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_7
+set_location_assignment PIN_F10 -to o_VGA_Grn_6
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_6
+set_location_assignment PIN_B8 -to o_VGA_Grn_5
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_5
+set_location_assignment PIN_C8 -to o_VGA_Grn_4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_4
+set_location_assignment PIN_H12 -to o_VGA_Grn_3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_3
+set_location_assignment PIN_F8 -to o_VGA_Grn_2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_2
+set_location_assignment PIN_G11 -to o_VGA_Grn_1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_1
+set_location_assignment PIN_G8 -to o_VGA_Grn_0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Grn_0
+
+#============================================================
+# VGA BLUE (Mapped to DAC MSBs 7, 6, 5)
+#============================================================
+set_location_assignment PIN_D12 -to o_VGA_Blu_7
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_7
+set_location_assignment PIN_D11 -to o_VGA_Blu_6
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_6
+set_location_assignment PIN_C12 -to o_VGA_Blu_5
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_5
+set_location_assignment PIN_A11 -to o_VGA_Blu_4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_4
+set_location_assignment PIN_B11 -to o_VGA_Blu_3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_3
+set_location_assignment PIN_C11 -to o_VGA_Blu_2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_2
+set_location_assignment PIN_A10 -to o_VGA_Blu_1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_1
+set_location_assignment PIN_B10 -to o_VGA_Blu_0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blu_0
+
+#============================================================
+# REQUIRED DAC CONTROLS
+#============================================================
+set_location_assignment PIN_A12 -to o_VGA_Clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Clk
+
+set_location_assignment PIN_F11 -to o_VGA_Blank_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Blank_n
+
+set_location_assignment PIN_C10 -to o_VGA_Sync_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_VGA_Sync_n
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+
+#============================================================
+# SWITCHES AND BUTTONS
+#============================================================
+set_location_assignment PIN_AB28 -to i_Switch
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_Switch
+set_location_assignment PIN_M23 -to i_Button1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_Button1
+set_location_assignment PIN_M21 -to i_Button2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_Button2
+set_location_assignment PIN_N21 -to i_Button3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_Button3
+set_location_assignment PIN_R24 -to i_Button4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_Button4
+
+set_global_assignment -name QIP_FILE PLL_25MHz.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
