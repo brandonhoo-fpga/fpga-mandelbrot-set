@@ -4,12 +4,12 @@ A real-time hardware Mandelbrot Set renderer that outputs over VGA. Operates pix
 **Note:** This was my **second independent FPGA project**, built right after the Morse Code Decoder. It is the project where I first learned about deep pipelining, fixed-point arithmetic, and the difference between what a specific FPGA can and cannot fit. It is also the project where I had to switch hardware mid-development to actually finish the design.
 
 ## Hardware Demonstration
-<img width="4079" height="3059" alt="Fractal" src="https://github.com/user-attachments/assets/2acb5382-f626-4133-bb56-cd1b1e7af9fd" />
+<img width="4079" height="3059" alt="Fractal" src="https://github.com/user-attachments/assets/5e176839-2557-4329-a9da-4f537b33cc16" />
+
 The fractal renders continuously across the full 640x480 frame at 60Hz. Points inside the Mandelbrot set appear black, with a bright yellow halo at the boundary (points that take many iterations to escape) fading through red to black as the escape happens faster. 
 
 ## Interactive Extension (Pan + Zoom)
-
-<img width="697" height="532" alt="Mandelbrot" src="https://github.com/user-attachments/assets/0e88e335-50ef-4228-9289-a0f803088978" />
+<img width="697" height="532" alt="Mandelbrot" src="https://github.com/user-attachments/assets/ed884e82-ae64-434c-8219-71bd1a1edbf2" />
 
 After the base renderer was working, I extended the design in `de2_115_interactive/` so the board's pushbuttons drive pan and zoom in real time. KEY0 / KEY1 pan one axis, KEY2 / KEY3 zoom, and SW0 picks between horizontal and vertical panning.
 
